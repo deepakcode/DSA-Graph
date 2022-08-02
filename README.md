@@ -5,8 +5,8 @@ DFS can be sloved using recursion/stack.
 In graph because node is repeated unlike trees so we need to keep track of visited nodes.
 
 <p>
-https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
-
+https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
+    
 ```java
     public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         boolean visited[] = new boolean[V];
@@ -42,7 +42,7 @@ In graph because node is repeated unlike trees so we need to keep track of visit
 ``if (!visited[current]) ``- this is must !
 
 <p>
-https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
+https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 
 ```java    
      public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
