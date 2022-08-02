@@ -1,12 +1,39 @@
 # Graph: Must do coding questions
-1. Depth First Traversal
-<p>
-**Depth First Traversal**
+#### 1) Depth First Traversal
 DFS can be sloved using recursion/stack.
+
 In graph because node is repeated unlike trees so we need to keep track of visited nodes.
+
+<p>
+https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
+
+```java
+    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        boolean visited[] = new boolean[V];
+        ArrayList<Integer> result = new ArrayList<>();
+        // as start point is not given, lets assume it is '0'
+        int s=0;
+        dfs(adj,s,visited,result);
+        return result;
+    }
+    
+    public void dfs(ArrayList<ArrayList<Integer>> adj, int node, boolean[] visited, ArrayList<Integer> result){
+        //mark start - as visited
+        //Do dfs over each adjacent vertex only if it is not visited
+        result.add(node);
+        visited[node]=true;
+        ArrayList<Integer> list= adj.get(node);
+        for(int adjacentNode: list){
+            if(!visited[adjacentNode]){
+                dfs(adj,adjacentNode,visited,result);
+            }
+        }
+    }
+    
+```
 </p>
 
-3. Breadth First Traversal
+#### 2) Breadth First Traversal
 4. Detect cycle in undirected graph
 5. Detect cycle in a directed graph
 6. Topological sort
