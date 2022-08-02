@@ -1,5 +1,5 @@
 This is grid probem
-```
+```java
 package com.practice.graph;
 
 public class Grid {
