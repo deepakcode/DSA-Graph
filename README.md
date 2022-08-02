@@ -68,7 +68,51 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
     }
  ```
 </p>
-4. Detect cycle in undirected graph
+#### 3) Detect cycle in undirected graph
+    
+BFS can be sloved using queue.
+    
+In graph because node is repeated unlike trees so we need to keep track of visited nodes.
+    
+``if (!visited[current]) ``- this is must !
+
+<p>
+https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
+
+```java    
+    public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+
+        for (int i = 0; i < adj.size(); i++) {
+            boolean[] visited = visited = new boolean[V + 1];
+            if (!visited[i])
+                if (isCycleUtil(visited, i, V, adj, -1)) {
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    public boolean isCycleUtil(boolean[] visited, int start, int V,
+                               ArrayList<ArrayList<Integer>> adj, int parent) {
+        Stack<Integer> stack = new Stack<>();
+        stack.add(start);
+        while (stack.size() > 0) {
+            int current = stack.pop();
+            if (!visited[current]) {
+                visited[current] = true;
+                parent = current;
+                for (int adjacent : adj.get(current)) {
+                    if (!visited[adjacent])
+                        stack.add(adjacent);
+                }
+            } else if (current != parent) {
+                return true;
+            }
+        }
+        return false;
+    }
+ ```
+</p>
 5. Detect cycle in a directed graph
 6. Topological sort
 7. Find the number of islands
