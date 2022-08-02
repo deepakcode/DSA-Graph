@@ -1,13 +1,13 @@
-1 Depth First Traversal
-2 Breadth First Traversal
-3 Detect cycle in undirected graph
-4 Detect cycle in a directed graph
-5 Topological sort
-6 Find the number of islands
-7 Implementing Dijkstra
-8 Minimum Swaps
-9 Strongly Connected Components
-10 Shortest Source to Destination Path
+1. Depth First Traversal
+2. Breadth First Traversal
+3. Detect cycle in undirected graph
+4. Detect cycle in a directed graph
+5. Topological sort
+6. Find the number of islands
+7. Implementing Dijkstra
+8. Minimum Swaps
+9. Strongly Connected Components
+10. Shortest Source to Destination Path
 <details>
 <summary>11 Find whether path exist</summary>
 <p>
