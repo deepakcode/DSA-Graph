@@ -34,6 +34,40 @@ https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
 </p>
 
 #### 2) Breadth First Traversal
+    
+BFS can be sloved using queue.
+    
+In graph because node is repeated unlike trees so we need to keep track of visited nodes.
+    
+``if (!visited[current]) ``- this is must !
+
+<p>
+https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
+
+```java    
+     public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        ArrayList<Integer> res = new ArrayList<>();
+        boolean[] visited = new boolean[V];
+        Arrays.fill(visited, false);
+        int start = 0;//assuming it is 0 because it is not given
+        LinkedList<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        while (queue.size() > 0) {
+            int current = queue.poll();
+            if (!visited[current]) { //This check is required else some of the test cases are failing in gfg
+                visited[current] = true;
+                res.add(current);
+                for (int connectedVertex : adj.get(current)) {
+                    if (!visited[connectedVertex]) {
+                        queue.add(connectedVertex);
+                    }
+                }
+            }
+        }//while
+        return res;
+    }
+ ```
+</p>
 4. Detect cycle in undirected graph
 5. Detect cycle in a directed graph
 6. Topological sort
