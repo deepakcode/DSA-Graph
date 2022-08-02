@@ -72,6 +72,15 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 #### 3) Detect cycle in undirected graph
 
 During DFS if somenode is already visited and adjacentNode is not equal to parent then there is cycle.
+Implementation note
+- Do DFS from each node.
+- Neighbour node shuld not equals to parent.
+- If DFS return true then only return true else false.
+   ``if(isCyclicUtil(u,visited,-1,adj))
+     return true;``
+- In recursive call pass current as parent.
+   ``if(isCyclicUtil(i,visited,i,adj))
+ 		return true;``
 
 [https://youtu.be/UPfUFoWjk5w?t=93](https://tinyurl.com/isCyclePresent)
 
