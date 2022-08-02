@@ -68,8 +68,8 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
     }
  ```
 </p>
-#### 3) Detect cycle in undirected graph
-    
+
+#### 3) Detect cycle in undirected graph    
 
 
 <p>
