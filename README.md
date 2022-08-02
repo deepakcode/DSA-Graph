@@ -79,37 +79,30 @@ During DFS if somenode is already visited and adjacentNode is not equal to paren
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
 
 ```java    
-    public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
-
-        for (int i = 0; i < adj.size(); i++) {
-            boolean[] visited = visited = new boolean[V + 1];
-            if (!visited[i])
-                if (isCycleUtil(visited, i, V, adj, -1)) {
-                    return true;
-                }
-        }
-        return false;
-    }
-
-    public boolean isCycleUtil(boolean[] visited, int start, int V,
-                               ArrayList<ArrayList<Integer>> adj, int parent) {
-        Stack<Integer> stack = new Stack<>();
-        stack.add(start);
-        while (stack.size() > 0) {
-            int current = stack.pop();
-            if (!visited[current]) {
-                visited[current] = true;
-                parent = current;
-                for (int adjacent : adj.get(current)) {
-                    if (!visited[adjacent])
-                        stack.add(adjacent);
-                }
-            } else if (current != parent) {
+ public  boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+    boolean[] visited = new boolean[V];
+    for (int u = 0; u < V; u++) {
+        if (!visited[u])
+            if(isCyclicUtil(u,visited,-1,adj))
                 return true;
-            }
-        }
-        return false;
     }
+    return false;
+ }
+ 
+ public boolean isCyclicUtil(int v, boolean[] visited,
+                    int parent, ArrayList<ArrayList<Integer>> adj){
+     visited[v]=true;
+     for(int i: adj.get(v)){
+        if(!visited[i]){
+            if(isCyclicUtil(i,visited,v,adj)){
+                 return true;
+            }
+        }else if(i != parent ){
+            return true;
+        }
+     }
+     return false;
+ }
  ```
 </p>
 5. Detect cycle in a directed graph
