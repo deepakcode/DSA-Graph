@@ -9,7 +9,7 @@ Minimum Swaps
 Strongly Connected Components
 Shortest Source to Destination Path
 <details>
-<summary>Find whether path exist</summary>
+<summary>11 Find whether path exist</summary>
 <p>
 https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
 
