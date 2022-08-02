@@ -1,14 +1,20 @@
 # Graph: Must do coding questions
 1. Depth First Traversal
-2. Breadth First Traversal
-3. Detect cycle in undirected graph
-4. Detect cycle in a directed graph
-5. Topological sort
-6. Find the number of islands
-7. Implementing Dijkstra
-8. Minimum Swaps
-9. Strongly Connected Components
-10. Shortest Source to Destination Path
+<p>
+**Depth First Traversal**
+DFS can be sloved using recursion/stack.
+In graph because node is repeated unlike trees so we need to keep track of visited nodes.
+</p>
+
+3. Breadth First Traversal
+4. Detect cycle in undirected graph
+5. Detect cycle in a directed graph
+6. Topological sort
+7. Find the number of islands
+8. Implementing Dijkstra
+9. Minimum Swaps
+10. Strongly Connected Components
+11. Shortest Source to Destination Path
 <details>
 <summary>11 Find whether path exist</summary>
 <p>
