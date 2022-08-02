@@ -70,11 +70,7 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 </p>
 #### 3) Detect cycle in undirected graph
     
-BFS can be sloved using queue.
-    
-In graph because node is repeated unlike trees so we need to keep track of visited nodes.
-    
-``if (!visited[current]) ``- this is must !
+
 
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
