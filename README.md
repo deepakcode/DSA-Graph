@@ -69,8 +69,11 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
  ```
 </p>
 
-#### 3) Detect cycle in undirected graph    
+#### 3) Detect cycle in undirected graph
 
+During DFS if somenode is already visited and adjacentNode is not equal to parent then there is cycle.
+
+https://youtu.be/UPfUFoWjk5w?t=93
 
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
