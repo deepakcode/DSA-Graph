@@ -95,8 +95,8 @@ public class Grid {
 ```
 </p>
 </details>
-Minimum Cost Path
-Circle of Strings
-Floyd Warshall
-Alien Dictionary
-Snake and Ladder Problem
+12. Minimum Cost Path
+13. Circle of Strings
+14. Floyd Warshall
+15. Alien Dictionary
+16. Snake and Ladder Problem
