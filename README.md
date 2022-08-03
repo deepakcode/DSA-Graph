@@ -69,15 +69,18 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
  ```
 </p>
 
-#### 3) Detect cycle in undirected graph
+#### 3) Detect cycle in undirected graphDuring DFS if somenode is already visited and adjacentNode is not equal to parent then there is cycle.
 
-During DFS if somenode is already visited and adjacentNode is not equal to parent then there is cycle.
-Implementation note
+Implementation note :
+    
 - Do DFS from each node.
+    
 - Neighbour node shuld not equals to parent.
+    
 - If DFS return true then only return true else false.
    ``if(isCyclicUtil(u,visited,-1,adj))
      return true;``
+    
 - In recursive call pass current as parent.
    ``if(isCyclicUtil(i,visited,i,adj))
  		return true;``
@@ -120,7 +123,9 @@ https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/
     Do DFS traversal and take two visited array one for node visit and another one for recStack node visited.
     
     - Take two visited array one for node visit and another one for recStack node visited
+    
     - Mark false for recStack after node process
+    
     - Do not check for isVisited? for child as well as for parent node.
 
 <p>
@@ -167,7 +172,7 @@ class Solution {
  ```
 </p>
     
-#### 4) Topological sort
+#### 5) Topological sort
     
     - Do dfs once node is processed store it into stack! that's it. Done!!!
         `` stack.add(i);``
