@@ -6,7 +6,11 @@ In graph because node is repeated unlike trees so we need to keep track of visit
 
 <p>
 https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
+  
+<details>
     
+<summary>code</summary>    
+      
 ```java
     public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         boolean visited[] = new boolean[V];
@@ -31,6 +35,9 @@ https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
     }
     
 ```
+    
+</details>
+    
 </p>
 
 #### 2) Breadth First Traversal
@@ -43,7 +50,11 @@ In graph because node is repeated unlike trees so we need to keep track of visit
 
 <p>
 https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
-
+    
+<details>
+    
+<summary>code</summary>    
+    
 ```java    
      public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> res = new ArrayList<>();
@@ -67,6 +78,9 @@ https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
         return res;
     }
  ```
+    
+ </details>
+    
 </p>
 
 #### 3) Detect cycle in undirected graphDuring DFS if somenode is already visited and adjacentNode is not equal to parent then there is cycle.
@@ -89,7 +103,11 @@ Implementation note :
 
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
-
+ 
+<details>
+    
+<summary>code</summary>    
+    
 ```java    
  public  boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
     boolean[] visited = new boolean[V];
@@ -116,7 +134,11 @@ https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/
      return false;
  }
  ```
+    
+</details>
+    
 </p>
+
     
 #### 4) Detect cycle in directed graph
     
@@ -130,7 +152,11 @@ https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/
 
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
-
+ 
+<details>
+    
+<summary>code</summary>    
+    
 ```java    
 class Solution {
 
@@ -169,8 +195,12 @@ class Solution {
         return false;
     }
 }
- ```
+```
+    
+</details>
+    
 </p>
+
     
 #### 5) Topological sort
     
@@ -179,7 +209,11 @@ class Solution {
 
 <p>
 https://practice.geeksforgeeks.org/problems/topological-sort/1
-
+ 
+<details>
+    
+<summary>code</summary>    
+    
 ```java    
 class Solution
 {
@@ -217,8 +251,12 @@ class Solution
     
         stack.add(i);
     }
-}
- ```
+```
+    
+</details>
+    
+</p>
+
 </p>
 7. Find the number of islands
 8. Implementing Dijkstra
