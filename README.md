@@ -165,8 +165,56 @@ class Solution {
     }
 }
  ```
-</p>    
-6. Topological sort
+</p>
+    
+#### 4) Topological sort
+    
+    - Do dfs once node is processed store it into stack! that's it. Done!!!
+        `` stack.add(i);``
+
+<p>
+https://practice.geeksforgeeks.org/problems/topological-sort/1
+
+```java    
+class Solution
+{
+    //Function to return list containing vertices in Topological order. 
+    static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) 
+    {
+      //DFS and store nodes in stack and print stack
+      Stack<Integer> stack = new Stack<>();// default '0'
+      boolean[] visited = new boolean[V]; //default 'false'
+      int[] res= new int[V];
+      
+      for(int i=0; i<V; i++){
+          if(!visited[i])
+          dfsUtil(i,adj,stack,visited);
+      }
+      int i=0;
+     // System.out.println(stack.size());
+      while(!stack.isEmpty()){
+          res[i]=stack.pop();
+          i++;
+      }
+      return res;
+    }
+    
+    
+    static public void dfsUtil(int i, ArrayList<ArrayList<Integer>> adj,Stack<Integer> stack, 
+                boolean[] visited){
+                    
+        visited[i]=true;
+        
+        for(int child: adj.get(i)){
+            if(!visited[child])
+             dfsUtil(child,adj,stack,visited);
+        }
+    
+        stack.add(i);
+    }
+}
+ ```
+</p>
 7. Find the number of islands
 8. Implementing Dijkstra
 9. Minimum Swaps
