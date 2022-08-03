@@ -114,7 +114,58 @@ https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/
  }
  ```
 </p>
-5. Detect cycle in a directed graph
+    
+#### 4) Detect cycle in directed graph
+    
+    Do DFS traversal and take two visited array one for node visit and another one for recStack node visited.
+    
+    - Take two visited array one for node visit and another one for recStack node visited
+    - Mark false for recStack after node process
+    - Do not check for isVisited? for child as well as for parent node.
+
+<p>
+https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
+
+```java    
+class Solution {
+
+    boolean isCyclicUtil(int i, boolean[] visited,boolean[] recStack,
+                         ArrayList<ArrayList<Integer>> adj) {
+        if(recStack[i])
+            return true;
+
+         if(visited[i])
+            return false;
+
+        visited[i] = true;
+        recStack[i] = true;
+
+        for (Integer c : adj.get(i)){
+            //Do not check for isVisited - for `c`
+                if (isCyclicUtil(c, visited,recStack, adj)) 
+                    return true;
+        }
+
+        recStack[i] = false; // Mark false for recStack after node process
+
+        return false;
+    }
+
+    public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+
+        boolean[] visited = new boolean[V];
+        boolean[] recStack = new boolean[V];
+
+        for (int i = 0; i < V; i++){
+            //Do not check for isVisited - for `i`
+             if (isCyclicUtil(i, visited,recStack,adj)) 
+                return true;
+        }
+        return false;
+    }
+}
+ ```
+</p>    
 6. Topological sort
 7. Find the number of islands
 8. Implementing Dijkstra
