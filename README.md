@@ -257,12 +257,77 @@ class Solution
     
 </p>
 
+
+#### 6) Find the number of islands
+
+- Just return the count of total DFS traversal that's it.
+
+<p>
+https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
+  
+<details>
+    
+<summary>code</summary>    
+      
+```java
+class Solution {
+    // Function to find the number of islands.
+    public int numIslands(char[][] grid) {
+        int count=0;
+        int M=grid.length;
+        int N=grid[0].length;
+        for(int i=0; i<M; i++){
+            for(int j=0; j<N; j++){
+                if(grid[i][j]=='1'){
+                     dfsUtil(grid,i,j,M,N);
+                     count++;
+                }
+            }
+        }
+       dfsUtil(grid,0,1,M,N)
+       return count;
+    }
+    
+    public void dfsUtil(char[][] grid, int x,int y, int M, int N){
+    
+       if(isValid(x,y,grid,M,N)){
+
+            if(grid[x][y]=='1'){
+                
+                grid[x][y]='2'; // Instead of visted mark is any other symbol except 1 or 0 
+                
+                dfsUtil(grid,x+1,y,M,N);
+                dfsUtil(grid,x-1,y,M,N);
+                dfsUtil(grid,x,y+1,M,N);
+                dfsUtil(grid,x,y-1,M,N);
+    
+                dfsUtil(grid,x-1,y-1,M,N);
+                dfsUtil(grid,x+1,y+1,M,N);
+                dfsUtil(grid,x-1,y+1,M,N);
+                dfsUtil(grid,x+1,y-1,M,N);
+            }
+       }
+
+    }
+    
+    public boolean isValid(int i, int j, char[][] grid, int M,int N){
+        if(i>=0 && i<M && j>=0 && j<N){
+            return true;
+        }
+        return false;
+    }
+}
+    
+```
+    
+</details>
+    
 </p>
-7. Find the number of islands
-8. Implementing Dijkstra
-9. Minimum Swaps
-10. Strongly Connected Components
-11. Shortest Source to Destination Path
+
+7. Implementing Dijkstra
+8. Minimum Swaps
+9. Strongly Connected Components
+10. Shortest Source to Destination Path
 <details>
 <summary>11 Find whether path exist</summary>
 <p>
