@@ -205,7 +205,7 @@ class Solution {
 #### 5) Topological sort
     
     - Do dfs once node is processed store it into stack! that's it. Done!!!
-        `` stack.add(i);``
+        `stack.add(i);`
 
 <p>
 https://practice.geeksforgeeks.org/problems/topological-sort/1
