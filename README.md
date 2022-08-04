@@ -329,17 +329,17 @@ class Solution {
 - Initialize weight of all the vertex from source to Infinite (Integer.MAX_VALUE) and source it self as '0'
 
 - Pick up the min weight vertex(PriorityQueue sort by weight), because initialy source weight is '0' so we pick up it
-
-        `PriorityQueue<Pair> pQueue= new PriorityQueue<>(V,Comparator.comparingInt(p->p.weight));`
+     ```java
+        PriorityQueue<Pair> pQueue= new PriorityQueue<>(V,Comparator.comparingInt(p->p.weight));```
 
 - Now apply below logic for every adjacent vertex of min weight 
-
-         `int v = adj.get(u).get(i).get(0);
+     ```java
+         int v = adj.get(u).get(i).get(0);
           int edge_wt = adj.get(u).get(i).get(1);
           if(weight[v]>(weight[u]+edge_wt)){
                weight[v] = (weight[u]+edge_wt);
                pQueue.add(new Pair(weight[v],v));
-          }`
+          }```
 <p>
 https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
   
