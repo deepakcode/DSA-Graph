@@ -509,7 +509,94 @@ class Solution
     
 </p>
 
-10. Shortest Source to Destination Path
+
+#### 10) Shortest Source to Destination Path
+
+- Do BFS 
+
+- Corner case `-> If source node is not equal to 1 then return -1 because you can only move if it is '1'`
+```java
+    if(A[0][0]!=1)
+        return -1; // corner case
+```
+
+- Mark it visited or processed at the time of adding into queue
+    
+    for example - 
+
+```java
+    if(isValid(cell.x+1,cell.y,N,M,A)){
+        A[cell.x+1][cell.y]=2;
+        queue.add(new Cell(cell.x+1,cell.y,cell.cost+1));
+    }
+```
+<p>
+https://practice.geeksforgeeks.org/problems/shortest-source-to-destination-path3544/1
+  
+<details>
+    
+<summary>code</summary>    
+      
+```java
+class Solution {
+    
+    int shortestDistance(int N, int M, int A[][], int Dx, int Dy) {
+        if(A[0][0]!=1)
+            return -1; // corner case
+            
+        Queue<Cell> queue = new LinkedList<>();
+        queue.add(new Cell(0,0,0));
+        A[0][0]=2; // Mark it visited or processed at the time of adding into queue
+        
+        while(!queue.isEmpty()){
+            Cell cell = queue.poll();
+            if(cell.x== Dx  && cell.y==Dy)
+                return cell.cost;
+            else{
+                if(isValid(cell.x+1,cell.y,N,M,A)){
+                    A[cell.x+1][cell.y]=2;
+                    queue.add(new Cell(cell.x+1,cell.y,cell.cost+1));
+                }
+                if(isValid(cell.x-1,cell.y,N,M,A)){
+                    A[cell.x-1][cell.y]=2;
+                    queue.add(new Cell(cell.x-1,cell.y,cell.cost+1));
+                }
+                if(isValid(cell.x,cell.y+1,N,M,A)){
+                    A[cell.x][cell.y+1]=2;
+                    queue.add(new Cell(cell.x,cell.y+1,cell.cost+1));
+                    
+                }
+                if(isValid(cell.x,cell.y-1,N,M,A)){
+                    A[cell.x][cell.y-1]=2;
+                    queue.add(new Cell(cell.x,cell.y-1,cell.cost+1));
+                }
+             }
+       }
+       return -1;
+    }
+    
+    private boolean isValid(int x,int y,int N,int M, int A[][]){
+        if(x>=0 && x<N && y>=0 && y<M && A[x][y]==1)
+            return true;
+        return false;
+    }
+};
+
+class Cell{
+    int x;
+    int y;
+    int cost;
+    Cell(int x, int y, int cost){
+        this.x=x;
+        this.y=y;
+        this.cost=cost;
+    }
+}
+```
+</details>
+    
+</p>  
+  
 <details>
 <summary>11 Find whether path exist</summary>
 <p>
