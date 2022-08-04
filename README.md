@@ -411,7 +411,8 @@ int weight;
              dfsUtil(v,adj,visited,stack);
     }
     stack.add(u);
-```
+    ```
+  
 - Transpose the Graph G'
   
     ```java
@@ -420,7 +421,8 @@ int weight;
           tAdj.get(adj.get(u).get(v)).add(u);
       }
     }
-```
+  ```
+  
 - Do DFS from stack nodes over G' (Transpose of graph), here each DFS is SCC so count it.
     
     ```java
@@ -432,7 +434,8 @@ int weight;
              dfsUtil(node,tAdj,visited);
         }
     }
-```
+  ```
+  
 <p>
 https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
   
@@ -501,6 +504,7 @@ class Solution
     
 }
 ```
+  
 </details>
     
 </p>
@@ -588,8 +592,9 @@ public class Grid {
         }
     }
 
-}
+}                                          
 ```
+                                              
 </p>
 </details>
 12. Minimum Cost Path
