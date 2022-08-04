@@ -404,32 +404,35 @@ int weight;
 #### 9) Strongly Connected Components
 
 - Perfom DFS and store the result in Stack (exactly like toposort) i:e first process the node then store it!
-
+    
+    ```java
     `visited[u]=true;
     for(int v: adj.get(u)){
         if(!visited[v])
              dfsUtil(v,adj,visited,stack);
     }
-    stack.add(u);`
+    stack.add(u);```
 
 - Transpose the Graph G'
-    
-    `for(int u=0; u<adj.size(); u++){
+  
+    ```java
+    for(int u=0; u<adj.size(); u++){
       for(int v=0; v<adj.get(u).size(); v++){
           tAdj.get(adj.get(u).get(v)).add(u);
       }
-    }`
+    }```
 
 - Do DFS from stack nodes over G' (Transpose of graph), here each DFS is SCC so count it.
-    `Arrays.fill(visited,false);
+    
+    ```java
+    Arrays.fill(visited,false);
     while(!stack.isEmpty()){
         int node = stack.pop();
         if(!visited[node]){
              ++count;
              dfsUtil(node,tAdj,visited);
         }
-    },
-
+    }```
 
 <p>
 https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
