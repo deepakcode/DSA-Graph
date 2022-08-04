@@ -398,8 +398,115 @@ int weight;
 </details>
     
 </p>
+  
 8. Minimum Swaps
-9. Strongly Connected Components
+
+#### 9) Strongly Connected Components
+
+- Perfom DFS and store the result in Stack (exactly like toposort) i:e first process the node then store it!
+
+    `visited[u]=true;
+    for(int v: adj.get(u)){
+        if(!visited[v])
+             dfsUtil(v,adj,visited,stack);
+    }
+    stack.add(u);`
+
+- Transpose the Graph G'
+    
+    `for(int u=0; u<adj.size(); u++){
+      for(int v=0; v<adj.get(u).size(); v++){
+          tAdj.get(adj.get(u).get(v)).add(u);
+      }
+    }`
+
+- Do DFS from stack nodes over G' (Transpose of graph), here each DFS is SCC so count it.
+    `Arrays.fill(visited,false);
+    while(!stack.isEmpty()){
+        int node = stack.pop();
+        if(!visited[node]){
+             ++count;
+             dfsUtil(node,tAdj,visited);
+        }
+    },
+
+
+<p>
+https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
+  
+<details>
+    
+<summary>code</summary>    
+      
+```java
+
+class Solution
+{
+    //Function to find number of strongly connected components in the graph.
+    public int kosaraju(int V, ArrayList<ArrayList<Integer>> adj)
+    {
+        //Do DFS
+        //G1 - transpose
+        //DGF of stack element
+        int count = 0;
+        boolean[] visited=new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+
+        for(int u=0; u<V; u++){
+            if(!visited[u]){
+                dfsUtil(u,adj,visited,stack);
+            }
+        }
+        
+        ArrayList<ArrayList<Integer>> tAdj= new ArrayList<>();
+        
+        for(int i=0; i<adj.size(); i++)
+            tAdj.add(new ArrayList<>());
+        
+        for(int u=0; u<adj.size(); u++){
+              for(int v=0; v<adj.get(u).size(); v++){
+                  tAdj.get(adj.get(u).get(v)).add(u);
+              }
+        }
+        Arrays.fill(visited,false);
+        while(!stack.isEmpty()){
+            int node = stack.pop();
+            if(!visited[node]){
+                 ++count;
+                 dfsUtil(node,tAdj,visited);
+            }
+        }
+        return count;
+    }
+    
+    public void dfsUtil(int u, ArrayList<ArrayList<Integer>> adj, 
+            boolean[] visited, Stack<Integer> stack){
+        visited[u]=true;
+        for(int v: adj.get(u)){
+            if(!visited[v])
+                 dfsUtil(v,adj,visited,stack);
+        }
+        stack.add(u);
+    } 
+    
+    public void dfsUtil(int u, ArrayList<ArrayList<Integer>> adj, 
+            boolean[] visited){
+        visited[u]=true;
+        for(int v: adj.get(u)){
+            if(!visited[v])
+                 dfsUtil(v,adj,visited);
+        }
+    } 
+    
+}
+
+
+```
+</details>
+    
+</p>
+
+  
 10. Shortest Source to Destination Path
 <details>
 <summary>11 Find whether path exist</summary>
