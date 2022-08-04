@@ -330,7 +330,8 @@ class Solution {
 
 - Pick up the min weight vertex(PriorityQueue sort by weight), because initialy source weight is '0' so we pick up it
      ```java
-        PriorityQueue<Pair> pQueue= new PriorityQueue<>(V,Comparator.comparingInt(p->p.weight));```
+        PriorityQueue<Pair> pQueue= new PriorityQueue<>(V,Comparator.comparingInt(p->p.weight));
+  ```
 
 - Now apply below logic for every adjacent vertex of min weight 
      ```java
@@ -339,7 +340,8 @@ class Solution {
           if(weight[v]>(weight[u]+edge_wt)){
                weight[v] = (weight[u]+edge_wt);
                pQueue.add(new Pair(weight[v],v));
-          }```
+          }
+  ```
 <p>
 https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
   
@@ -390,7 +392,8 @@ int weight;
         weight=_weight;
         vertex=_vertex;
     }
-}```
+}
+```
 </details>
     
 </p>
@@ -408,7 +411,7 @@ int weight;
              dfsUtil(v,adj,visited,stack);
     }
     stack.add(u);
-
+```
 - Transpose the Graph G'
   
     ```java
@@ -417,7 +420,7 @@ int weight;
           tAdj.get(adj.get(u).get(v)).add(u);
       }
     }
-
+```
 - Do DFS from stack nodes over G' (Transpose of graph), here each DFS is SCC so count it.
     
     ```java
@@ -429,7 +432,7 @@ int weight;
              dfsUtil(node,tAdj,visited);
         }
     }
-
+```
 <p>
 https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
   
@@ -438,7 +441,6 @@ https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosara
 <summary>code</summary>    
       
 ```java
-
 class Solution
 {
     //Function to find number of strongly connected components in the graph.
@@ -497,12 +499,12 @@ class Solution
         }
     } 
     
-}```
+}
+```
 </details>
     
 </p>
 
-  
 10. Shortest Source to Destination Path
 <details>
 <summary>11 Find whether path exist</summary>
@@ -587,7 +589,6 @@ public class Grid {
     }
 
 }
-
 ```
 </p>
 </details>
