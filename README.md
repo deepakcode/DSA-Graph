@@ -205,7 +205,7 @@ class Solution {
 #### 5) Topological sort
     
     - Do dfs once node is processed store it into stack! that's it. Done!!!
-        `stack.add(i);`
+        stack.add(i);
 
 <p>
 https://practice.geeksforgeeks.org/problems/topological-sort/1
@@ -348,7 +348,6 @@ https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacenc
 <summary>code</summary>    
       
 ```java
-
 class Solution
 {
     //Function to find the shortest distance of all the vertices
@@ -391,10 +390,7 @@ int weight;
         weight=_weight;
         vertex=_vertex;
     }
-}
-
-
-```
+}```
 </details>
     
 </p>
@@ -406,12 +402,12 @@ int weight;
 - Perfom DFS and store the result in Stack (exactly like toposort) i:e first process the node then store it!
     
     ```java
-    `visited[u]=true;
+    visited[u]=true;
     for(int v: adj.get(u)){
         if(!visited[v])
              dfsUtil(v,adj,visited,stack);
     }
-    stack.add(u);```
+    stack.add(u);
 
 - Transpose the Graph G'
   
@@ -420,7 +416,7 @@ int weight;
       for(int v=0; v<adj.get(u).size(); v++){
           tAdj.get(adj.get(u).get(v)).add(u);
       }
-    }```
+    }
 
 - Do DFS from stack nodes over G' (Transpose of graph), here each DFS is SCC so count it.
     
@@ -432,7 +428,7 @@ int weight;
              ++count;
              dfsUtil(node,tAdj,visited);
         }
-    }```
+    }
 
 <p>
 https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
@@ -501,10 +497,7 @@ class Solution
         }
     } 
     
-}
-
-
-```
+}```
 </details>
     
 </p>
