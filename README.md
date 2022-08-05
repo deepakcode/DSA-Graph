@@ -672,7 +672,7 @@ class Solution
     
 #### 11) Minimum Cost Path
 
-- This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP (Memoization), here some of the test case will fail, because you need to store the sum of previous values in DB metric (Memoization), for large value it will throws INTEGER or LONG values error. 
+- This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP (Memoization), here some of the test case will fail, because you need to store the sum of previous values in DP metric (Memoization), for large value it will throws INTEGER or LONG LIMIT EXCEED error. 
 
 So finally you can solve it using Dijkstra algo, it will works fine.
 
