@@ -680,11 +680,14 @@ So finally you can solve it using Dijkstra algo, it will works fine.
 https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
 <details>
+  
 <summary>code</summary>    
+  
 ```java
 
 ```
 </details>
+  
 </p>
   
 13. Circle of Strings
