@@ -721,6 +721,76 @@ int minimumCostPath(int cost[][])
 ```
 </details>
   
+<details>
+  
+<summary>Dijkstra code - all test cases passed!</summary>    
+  
+```java
+class Solution
+{
+    
+    public int minimumCostPath(int[][] grid)
+    {
+        int row = grid.length;
+        int col = grid[0].length;
+        
+        int[][] dp = new int[row][col];
+        for(int i = 0; i < row; i++)
+            for(int j = 0; j < col; j++)
+                dp[i][j] = Integer.MAX_VALUE;
+                
+        dp[0][0] = grid[0][0];
+        
+        PriorityQueue<Cell> pq = new PriorityQueue<Cell>(row * col, Comparator.comparingInt(c->c.distance));
+        pq.add(new Cell(0, 0, dp[0][0]));
+        
+        while (!pq.isEmpty())
+        {
+            Cell curr = pq.poll();
+            
+            for(int i = 0; i < 4; i++)
+            {
+                int rows = curr.x + dx[i];
+                int cols = curr.y + dy[i];
+                
+                if (isValid(rows, cols, grid.length, grid[0].length)){
+                    if (dp[rows][cols] >dp[curr.x][curr.y]+grid[rows][cols]){
+                        
+                        dp[rows][cols]=dp[curr.x][curr.y]+grid[rows][cols];
+                        
+                        pq.add(new Cell(rows, cols, dp[rows][cols]));
+                    }
+                }
+            }
+        }
+        return dp[row - 1][col - 1];
+    }
+    
+    static class Cell
+    {
+        int x;
+        int y;
+        
+        int distance;
+        
+        Cell(int x, int y, int distance) 
+        {
+            this.x = x;
+            this.y = y;
+            this.distance = distance;
+        }
+    }
+    
+    static boolean isValid(int i, int j, int ROW, int COL){
+        return (i >= 0 && i < ROW &&j >= 0 && j < COL);
+    }
+    ///up down left right
+    static int[] dx = { -1, 0, 1, 0 };
+    static int[] dy = { 0, 1, 0, -1 };
+}
+```
+</details>
+  
 </p>
   
 13. Circle of Strings
