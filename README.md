@@ -672,7 +672,7 @@ class Solution
     
 #### 11) Minimum Cost Path
 
-- This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP (Memoization), here some of the test case will fail, because you need to store the sum of previous values in DP metric (Memoization), for large value it will throws INTEGER or LONG LIMIT EXCEED error. 
+- This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP Tabulation, here some of the test case are failing, but Dijkstra is working fine in this case.
 
 So finally you can solve it using Dijkstra algo, it will works fine.
 
@@ -681,10 +681,43 @@ https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
 <details>
   
-<summary>code</summary>    
+<summary>DP code</summary>    
   
 ```java
+class Solution
+{
+    
+int minimumCostPath(int cost[][])
+{
+    int m = cost.length;
+    int n = cost[0].length;
+    int[][] dp = new int[m][n];
+     minimumCostPath(cost,m-1,n-1,dp);
+     return dp[m-1][n-1];
+}
+ 
+ void minimumCostPath(int cost[][], int m, int n, int[][] dp){
+   
+    if (n < 0 || m < 0)
+        return;
+        
+   dp[0][0]=cost[0][0];
+   
+   for(int i=1;i<=m; i++)
+        dp[i][0]= dp[i-1][0]+cost[i][0];
+   
+   for(int j=1;j<=n; j++)
+        dp[0][j]= dp[0][j-1]+cost[0][j];
+        
 
+     for(int i=1;i<=m; i++){
+          for(int j=1;j<=n; j++){
+            dp[i][j]=cost[i][j]+Math.min(dp[i-1][j],dp[i][j-1]);
+          }
+     }
+ }
+
+}
 ```
 </details>
   
