@@ -670,8 +670,23 @@ class Solution
     
 </p>
     
+#### 11) Minimum Cost Path
+
+- This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP (Memoization), here some of the test case will fail, because you need to store the sum of previous values in DB metric (Memoization), for large value it will throws INTEGER or LONG values error. 
+
+So finally you can solve it using Dijkstra algo, it will works fine.
+
+<p>
+https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
+
+<details>
+<summary>code</summary>    
+```java
+
+```
+</details>
+</p>
   
-12. Minimum Cost Path
 13. Circle of Strings
 14. Floyd Warshall
 15. Alien Dictionary
