@@ -842,7 +842,7 @@ Is G is strongly connected if
 	6. Mark all node as not visited 
 	7. Perform DFS over G' keep the start node as same as DFS of G
 	8. If all vertices not visited, return false. 
-	9. At he end return true
+	9. At the end return true
 
 <p>
 https://practice.geeksforgeeks.org/problems/circle-of-strings4530/1
@@ -852,6 +852,150 @@ https://practice.geeksforgeeks.org/problems/circle-of-strings4530/1
 <summary>code</summary>    
   
 ```java
+// User function Template for Java
+ /*
+        (Done)Prob :  Create G from given words - geek g to k where v='g'-a
+        
+        1. if there is Elurian circle then there is cycle else not.
+                G' should be strongly connected [Kosaraju]
+                          0. pick up start vertex whoes adj list size is greater then zero
+                (done)    1.DFS should travers all vertices
+                    2. create G'
+                    3. G' take same node as DFS of G as start node and perform DFS
+                    4. if DFS of G' should travers all vertices
+        2. all nodes should have equal number of in and out degree (lenght of adj list of eqch vertex)
+        */
+        
+class Solution
+{
+        // Function to add an edge to graph
+    static void addEdge(int u, int v, int[] in, ArrayList<ArrayList<Integer>> adj)
+    {
+        adj.get(u).add(v);
+        in[v]++;
+    }
+
+    static int isCircle(int N, String A[])
+    {
+        int selfLoopCount=0;
+        
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        
+        int[] in = new int[26];
+        
+        for(int i=0; i<26; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(String word: A){
+            int u = word.charAt(0)-'a';
+            int v = word.charAt(word.length()-1)-'a';
+            //System.out.println(" U "+u);
+            //System.out.println(" V "+v);
+            
+            addEdge(u,v,in,adj);
+            
+            if(u==v)
+                selfLoopCount++;
+
+        }
+        
+        return isElurianCircuit(selfLoopCount,in,adj) ? 1 : 0;
+    }
+    
+    static boolean isElurianCircuit(int selfLoopCount,int[] in,
+                    ArrayList<ArrayList<Integer>> adj ){
+        
+            boolean flag=true;
+            int totalEdgeCount=0;
+            
+            int startV = 0;
+            for(int i=0; i<26; i++){
+                if(adj.get(i).size()>0){
+                    if(flag)
+                        startV=i;
+                    flag=false;    
+        
+                    totalEdgeCount++;
+                }
+            }
+            
+           
+            
+            //System.out.println("startV : "+startV);
+            
+            boolean[] visited = new boolean[adj.size()]; //Default value is false 
+            dfsUtil(startV,visited,adj);
+            
+            //if all vertices are not visited then return false;
+            for(int u=0 ; u<adj.size(); u++){
+                if(adj.get(u).size()>0 && !visited[u]){
+                    //System.out.println("first false");
+                     return false;
+                }
+                
+            }
+            // Do transpose of G'
+            
+            ArrayList<ArrayList<Integer>> adjT = getTranspose(adj);
+           
+            visited = new boolean[adj.size()];
+           
+            dfsUtil(startV,visited,adjT);
+            
+              //if all vertices are not visited then return false;
+            for(int u=0 ; u<adj.size(); u++){
+                if(adj.get(u).size()>0 && !visited[u]){
+                      //System.out.println("second false");
+                       return false;
+                }
+                
+            }
+            
+            for(int u=0 ; u<adj.size(); u++){
+                int edgeCount = adj.get(u).size();
+                if(edgeCount!=in[u]){
+                    // System.out.println("edgeCount "+edgeCount);
+                    //System.out.println("third false");
+                     return false;
+                    }
+            }
+            
+            
+            if(totalEdgeCount==1 && selfLoopCount==0){
+                //System.out.println("fourth false");
+                return false;
+            }
+            
+            return true;
+                  
+    }
+    
+    
+    static ArrayList<ArrayList<Integer>> getTranspose(ArrayList<ArrayList<Integer>> adj){
+            
+        ArrayList<ArrayList<Integer>> adjT = new ArrayList<>();
+        
+        for(int i=0; i<adj.size(); i++){
+            adjT.add(new ArrayList<>());
+        }
+        
+        for(int u=0; u<adj.size(); u++)
+              for(int v=0; v<adj.get(u).size(); v++)
+                    adjT.get(adj.get(u).get(v)).add(u);
+             
+        return adjT;
+    } 
+    static void dfsUtil(int u, boolean[] visited, ArrayList<ArrayList<Integer>> adj){
+         visited[u] = true;
+         for(int v: adj.get(u)){
+             if(!visited[v]){
+                 dfsUtil(v,visited,adj);
+             }
+         }
+    }
+    
+}
 
 
 ```
