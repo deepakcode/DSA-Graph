@@ -867,5 +867,7 @@ for(int k=1; k<n; k++)
 </details>
 
 </p>
+	
 15. Alien Dictionary
+	
 16. Snake and Ladder Problem
