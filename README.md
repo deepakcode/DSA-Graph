@@ -822,6 +822,14 @@ If Eulerian circuit is present in graph then
 		   return false;
 
 ```
+	3. Edge case -
+		```java
+		
+	    if(totalEdgeCount==1 && selfLoopCount==0){
+                //System.out.println("fourth false");
+                return false;
+            }
+	    ```
 
 
 Is G is strongly connected if
