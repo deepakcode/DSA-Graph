@@ -51,7 +51,7 @@ In graph because node is repeated unlike trees so we need to keep track of visit
 <p>
 https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
     
-<details>
+</details>
     
 <summary>code</summary>    
     
@@ -104,7 +104,7 @@ Implementation note :
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
  
-<details>
+</details>
     
 <summary>code</summary>    
     
@@ -153,7 +153,7 @@ https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/
 <p>
 https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
  
-<details>
+</details>
     
 <summary>code</summary>    
     
@@ -210,7 +210,7 @@ class Solution {
 <p>
 https://practice.geeksforgeeks.org/problems/topological-sort/1
  
-<details>
+</details>
     
 <summary>code</summary>    
     
@@ -265,7 +265,7 @@ class Solution
 <p>
 https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
@@ -345,7 +345,7 @@ class Solution {
 <p>
 https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
@@ -439,7 +439,7 @@ int weight;
 <p>
 https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
@@ -533,7 +533,7 @@ class Solution
 <p>
 https://practice.geeksforgeeks.org/problems/shortest-source-to-destination-path3544/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
@@ -605,7 +605,7 @@ class Cell{
 <p>
 https://practice.geeksforgeeks.org/problems/find-whether-path-exist5238/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
@@ -679,7 +679,7 @@ So finally you can solve it using Dijkstra algo, it will works fine.
 <p>
 https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
-<details>
+</details>
   
 <summary>DP code</summary>    
   
@@ -721,7 +721,7 @@ int minimumCostPath(int cost[][])
 ```
 </details>
   
-<details>
+</details>
   
 <summary>Dijkstra code - all test cases passed!</summary>    
   
@@ -852,7 +852,7 @@ for(int k=1; k<n; k++)
 <p>
 https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
-<details>
+</details>
   
 <summary>code</summary>    
   
