@@ -1069,6 +1069,89 @@ class Solution
 
 </p>
 	
-15. Alien Dictionary
+
+#### 15	) Alien Dictionary [topology sort]
+	
+1. Add all the edge in correct order and perform topological sort.
+	
+```java
+for (int i = 0; i < dict.length - 1; i++) {
+    String word1 = dict[i];
+    String word2 = dict[i + 1];
+    int n = Math.min(word1.length(), word2.length());
+    for (int j = 0; j < n; j++) {
+	if (word1.charAt(j) != word2.charAt(j)) {
+	    int u = word1.charAt(j) - 'a';
+	    int v = word2.charAt(j) - 'a';
+	    adj.get(u).add(v);
+	    break;
+	}
+    }
+}
+```
+
+<p>
+	
+https://practice.geeksforgeeks.org/problems/alien-dictionary/1
+	
+</details>
+  
+<summary>code</summary>    
+
+```java
+class Solution {
+    public String findOrder(String[] dict, int N, int K) {
+        int V = 26; // 26 char total from A-Z
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+        for (int i = 0; i < V; i++)
+            adj.add(new ArrayList<Integer>());
+
+        for (int i = 0; i < dict.length - 1; i++) {
+            String word1 = dict[i];
+            String word2 = dict[i + 1];
+            int n = Math.min(word1.length(), word2.length());
+            for (int j = 0; j < n; j++) {
+                if (word1.charAt(j) != word2.charAt(j)) {
+                    int u = word1.charAt(j) - 'a';
+                    int v = word2.charAt(j) - 'a';
+                    adj.get(u).add(v);
+                    break;
+                }
+            }
+        }
+        Stack<Integer> stack = topologySort(adj);
+        while (!stack.isEmpty()) {
+            int c = stack.pop() + 'a';
+        }
+        return new String(sb);
+    }
+
+    public Stack<Integer> topologySort(ArrayList<ArrayList<Integer>> adj) {
+        int V = adj.size();
+        boolean[] visited = new boolean[V]; //default false
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < V; i++) {
+            if (adj.get(i).size() > 0 && !visited[i])
+                dfsUtil(i, adj, visited, stack);
+        }
+        return stack;
+    }
+
+    public void dfsUtil(int u, ArrayList<ArrayList<Integer>> adj, boolean[] visited, Stack<Integer> stack) {
+        visited[u] = true;
+        for (int v : adj.get(u)) {
+            if (adj.get(u).size() > 0 && !visited[v]) {
+                dfsUtil(v, adj, visited, stack);
+            }
+        }
+        stack.add((u));
+    }
+}
+```
+</details>
+
+</p>
 	
 16. Snake and Ladder Problem
