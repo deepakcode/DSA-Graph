@@ -7,7 +7,7 @@ In graph because node is repeated unlike trees so we need to keep track of visit
 <p>
 https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
   
-<details>
+</details>
     
 <summary>code</summary>    
       
