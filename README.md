@@ -1090,6 +1090,10 @@ for (int i = 0; i < dict.length - 1; i++) {
 }
 ```
 
+Note 
+
+Do not forget `break;` statement within for loop.
+
 <p>
 	
 https://practice.geeksforgeeks.org/problems/alien-dictionary/1
