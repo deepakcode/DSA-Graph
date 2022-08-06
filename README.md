@@ -835,10 +835,11 @@ https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 	
 1. In this algo we find shorted path from each vertex to all other vertices.
 	
-2. Here DP can be applied -
-	A[i][j] = A[i][k]+A[K][j];
+- Here DP can be applied -
 	
-3. Simple Algo
+	`A[i][j] = A[i][k]+A[K][j];`
+	
+- Simple Algo
 	
 ```java
 for(int k=1; k<n; k++) 
