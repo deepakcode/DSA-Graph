@@ -1010,31 +1010,60 @@ class Solution
 - Here DP can be applied -
 	
 	`A[i][j] = A[i][k]+A[K][j];`
-	
-- Simple Algo
-	
-```java
-for(int k=1; k<n; k++) 
+		
+- If no path '-1' then replace it with Integer.MAX_VALUE (infinity) and then add below condition 
 
-	for(int i=1; i<n; i++) 
-		for(int j=1; j<n; j++) 
-			A[i][j] = A[i][k]+A[K][j];
+```java
+  if(matrix[i][k] <INF && matrix[k][j] < INF && (matrix[i][k] +  matrix[k][j])< matrix[i][j]){
+       matrix[i][j] =  matrix[i][k] +  matrix[k][j];
+   }
 ```
 
 <p>
-https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
-
+	
+https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1
+	
 </details>
   
 <summary>code</summary>    
   
 ```java
-for(int k=1; k<n; k++) 
-
-	for(int i=1; i<n; i++) 
-		for(int j=1; j<n; j++) 
-			A[i][j] = A[i][k]+A[K][j];
-
+class Solution
+{
+    public void shortest_distance(int[][] matrix)
+    {
+        
+        int n = matrix.length; 
+        
+        final int INF = Integer.MAX_VALUE;
+        
+        for(int i=0; i<n; i++){
+             for(int j=0; j<n; j++){
+                 if(matrix[i][j] == -1)
+                        matrix[i][j] =  INF;
+            }
+        }
+        
+        for(int k=0; k<n; k++){
+             for(int i=0; i<n; i++){
+                 for(int j=0; j<n; j++){
+                     
+                     if(matrix[i][k] <INF && matrix[k][j] < INF && 
+                            (matrix[i][k] +  matrix[k][j])< matrix[i][j])
+                                matrix[i][j] =  matrix[i][k] +  matrix[k][j];
+                }
+             }
+        }
+    
+        for(int i=0; i<n; i++){
+             for(int j=0; j<n; j++){
+                 if(matrix[i][j] ==INF )
+                        matrix[i][j] = -1;
+            }
+        }
+        
+    }
+}
 ```
 </details>
 
