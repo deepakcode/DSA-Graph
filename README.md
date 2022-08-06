@@ -817,7 +817,7 @@ Is G is strongly connected if
 	9. At he end return true
 
 <p>
-https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
+https://practice.geeksforgeeks.org/problems/circle-of-strings4530/1
 
 <details>
   
