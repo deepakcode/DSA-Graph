@@ -831,6 +831,40 @@ https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
 
 </p>
   
-14. Floyd Warshall
+#### 14	) Floyd Warshall (DP)
+	
+1. In this algo we find shorted path from each vertex to all other vertices.
+	
+2. Here DP can be applied -
+	A[i][j] = A[i][k]+A[K][j];
+	
+3. Simple Algo
+	
+```java
+for(int k=1; k<n; k++) 
+
+	for(int i=1; i<n; i++) 
+		for(int j=1; j<n; j++) 
+			A[i][j] = A[i][k]+A[K][j];
+```
+
+<p>
+https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
+
+<details>
+  
+<summary>code</summary>    
+  
+```java
+for(int k=1; k<n; k++) 
+
+	for(int i=1; i<n; i++) 
+		for(int j=1; j<n; j++) 
+			A[i][j] = A[i][k]+A[K][j];
+
+```
+</details>
+
+</p>
 15. Alien Dictionary
 16. Snake and Ladder Problem
