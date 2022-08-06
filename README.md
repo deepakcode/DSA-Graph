@@ -847,7 +847,7 @@ Is G is strongly connected if
 <p>
 https://practice.geeksforgeeks.org/problems/circle-of-strings4530/1
 
-<details>
+</details>
   
 <summary>code</summary>    
   
