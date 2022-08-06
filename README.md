@@ -796,12 +796,29 @@ class Solution
 #### 13	) Circle of Strings
 
 1. Create a graph considering edge for word'geek' as 'g' to 'k', total number of V would be 26, each vertext is ('g'-a)
+
 2. Chain can only be formed if there is Elurian circuit is present in Graph G
 
-  If Eulerian circuit is present in graph then 
+If Eulerian circuit is present in graph then 
 
-  1. Graph is strongly connected (Kosaraju)
-  2. In and Out degree of each vertex should be same. (check the length of adj node)
+	1. Graph is strongly connected (Kosaraju)
+
+	2. In and Out degree of each vertex should be same. (check the length of adj node)
+	```java
+		// Function to add an edge to graph
+		void addEdge(int v, int w)
+		{
+		    adj.get(v).add(w);
+		    in[w]++;
+		}
+		
+		// Check if in degree and out
+	    	// degree of every vertex is same
+		    for(int i = 0; i < V; i++)
+		       if (adj.get(i).size() != in[i])
+			   return false;
+	   
+	```
 
 
 Is G is strongly connected if
