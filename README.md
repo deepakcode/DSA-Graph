@@ -670,7 +670,7 @@ class Solution
     
 </p>
     
-#### 11) Minimum Cost Path
+#### 12) Minimum Cost Path
 
 - This question can be solved via Recursion (Time limit exception) - then you can optimized your Solution using DP Tabulation, here some of the test case are failing, but Dijkstra is working fine in this case.
 
@@ -793,7 +793,44 @@ class Solution
   
 </p>
   
-13. Circle of Strings
+#### 13	) Circle of Strings
+
+1. Create a graph considering edge for word'geek' as 'g' to 'k', total number of V would be 26, each vertext is ('g'-a)
+2. Chain can only be formed if there is Elurian circuit is present in Graph G
+
+  If Eulerian circuit is present in graph then 
+
+  1. Graph is strongly connected (Kosaraju)
+  2. In and Out degree of each vertex should be same. (check the length of adj node)
+
+
+Is G is strongly connected if
+
+	1. Define visited array  -  boolean[] visited = new boolean[V]; (defaut false)
+	2. Find first node, with non zero degree vertex.  if (adj.get(n).size() > 0)
+	3. Perform DFS
+	4*. If DFS traversal doesn't visit all vertices, then return false.
+	5. Create transpose of Graph - G' 
+	6. Mark all node as not visited 
+	7. Perform DFS over G' keep the start node as same as DFS of G
+	8. If all vertices not visited, return false. 
+	9. At he end return true
+
+<p>
+https://practice.geeksforgeeks.org/problems/minimum-cost-path3833/1
+
+<details>
+  
+<summary>code</summary>    
+  
+```java
+
+
+```
+</details>
+
+</p>
+  
 14. Floyd Warshall
 15. Alien Dictionary
 16. Snake and Ladder Problem
